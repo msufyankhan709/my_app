@@ -1,26 +1,54 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+  <v-app>
+  
+    <v-app-bar  color="deep-purple" dark>
+      <v-img ></v-img>
+      <v-btn v-for="header in headers" :key="header" :to="header.link">{{header.name}}</v-btn>
+    </v-app-bar>
+    <v-app class="mt-16">
+    <router-view/>
+  </v-app>
+    <v-footer
+    color="deep-purple"
+    class=" text-center d-flex flex-column mt-16"
+  >
+    <div>
+      <v-btn
+        v-for="icon in icons"
+        :key="icon"
+        class="mx-4"
+        :icon="icon"
+        variant="text"
+      ></v-btn>
+    </div>
 
+    <div class="pt-0">
+      Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+    </div>
+
+    <v-divider></v-divider>
+
+    <div>
+      {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+    </div>
+  </v-footer>
+  </v-app>
+
+  </template>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default{
+    name:'app',
+    data(){
+      return{
+        headers:[{name:'Home', link:'/home'}, {name:'About', link:'/about'}, {name:'Services', link:'/services'}, {name:'Technology', link:'/technology'}],
+        icons: [
+        'mdi-facebook',
+        'mdi-twitter',
+        'mdi-linkedin',
+        'mdi-instagram',
+      ],
+      
+    }
+      }
   }
-}
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
