@@ -2,7 +2,7 @@
   <v-app>
   
     <v-app-bar  color="deep-purple" dark>
-      <v-img ></v-img>
+      <v-img ><h1 class="ml-4">Sufyan Khan</h1></v-img>
       <v-btn v-for="header in headers" :key="header" :to="header.link">{{header.name}}</v-btn>
     </v-app-bar>
     <v-app class="mt-16">
